@@ -4,14 +4,19 @@ soong_namespace {
 cc_library_headers {
     name: "display_intf_headers",
     vendor_available: true,
-    defaults: [
-        "gralloc_handle_has_custom_content_md_reserved_size_defaults",
-        "gralloc_handle_has_reserved_size_defaults",
-    ],
+    product_available: true,
     export_include_dirs: [
         "gralloc",
         "include",
         "libqdmetadata",
         "services",
     ],
+    arch: {
+        arm64: {
+            export_include_dirs: ["include/arm64"],
+        },
+        arm: {
+            export_include_dirs: ["include/arm"],
+        },
+    },
 }
