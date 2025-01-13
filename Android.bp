@@ -3,20 +3,10 @@ soong_namespace {
 
 cc_library_headers {
     name: "display_intf_headers",
-    vendor_available: true,
-    product_available: true,
-    export_include_dirs: [
-        "gralloc",
-        "include",
-        "libqdmetadata",
-        "services",
-    ],
-    arch: {
-        arm64: {
-            export_include_dirs: ["include/arm64"],
-        },
-        arm: {
-            export_include_dirs: ["include/arm"],
+    export_include_dirs: ["include"],
+    target: {
+        android: {
+            export_include_dirs: ["include/android"],
         },
     },
 }
